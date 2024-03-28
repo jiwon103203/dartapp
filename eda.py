@@ -51,7 +51,7 @@ with col4:
 graph_type=st.selectbox("그래프 종류",["막대그래프","선그래프"],key="graph_type")
 submit_corp=st.button("Submit",key="submit_corp")
 
-dart_fss.set_api_key(api_key=api_key)
+dart_fss.set_api_key(api_key=API_KEY)
 corp_code=[]
 if submit_corp:
     df=pd.DataFrame(dart_fss.api.filings.get_corp_code())
