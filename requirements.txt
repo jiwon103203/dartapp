@@ -1,4 +1,3 @@
 dart-fss
 pandas
-os
-python-dotenv
+streamlit
