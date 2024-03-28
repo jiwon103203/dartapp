@@ -1,6 +1,7 @@
 import dart_fss
 import pandas as pd
 import streamlit as st
+import os
 
 def find_corp_code(df,corp_name:str,corp_status:bool,compare:str,compare_status:bool,period:str):
     result=''
@@ -51,6 +52,7 @@ with col4:
 graph_type=st.selectbox("그래프 종류",["막대그래프","선그래프"],key="graph_type")
 submit_corp=st.button("Submit",key="submit_corp")
 
+api_key=os.environ["api_key"]
 print("api key는 다음과 같음",api_key)
 dart_fss.set_api_key(api_key=api_key)
 corp_code=[]
