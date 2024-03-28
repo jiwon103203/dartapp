@@ -61,12 +61,13 @@ if submit_corp:
     if result=="해당 기업이 없습니다":
         st.write(result)
     else:
-        if len(corp_code)==1:
-            fs=dart_fss.fs.extract(corp_code=corp_code[0],report_tp=period,bgn_de="20190101",end_de="20240327")
-        else:
-            fs=dart_fss.fs.extract(corp_code=corp_code[0],report_tp=period,bgn_de="20190101",end_de="20240327")
-            fs_compare=dart_fss.fs.extract(corp_code=corp_code[1],report_tp=period,bgn_de="20190101",end_de="20240327")
-            df_compare=pd.DataFrame(fs_compare['bs'])
+        with st.spinner('데이터 수집 중'):
+            if len(corp_code)==1:
+                fs=dart_fss.fs.extract(corp_code=corp_code[0],report_tp=period,bgn_de="20190101",end_de="20240327")
+            else:
+                fs=dart_fss.fs.extract(corp_code=corp_code[0],report_tp=period,bgn_de="20190101",end_de="20240327")
+                fs_compare=dart_fss.fs.extract(corp_code=corp_code[1],report_tp=period,bgn_de="20190101",end_de="20240327")
+                df_compare=pd.DataFrame(fs_compare['bs'])
         df=pd.DataFrame(fs['bs'])
         year_list=[]
         for i in df.columns[8:]:
