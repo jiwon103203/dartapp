@@ -53,7 +53,6 @@ graph_type=st.selectbox("그래프 종류",["막대그래프","선그래프"],ke
 submit_corp=st.button("Submit",key="submit_corp")
 
 api_key=os.environ["api_key"]
-print("api key는 다음과 같음",api_key)
 dart_fss.set_api_key(api_key=api_key)
 corp_code=[]
 if submit_corp:
